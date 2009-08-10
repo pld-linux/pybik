@@ -1,5 +1,6 @@
-Summary:	Pybik is a 3D interactive graphics puzzle (similar to a Rubik cube)
+Summary:	A 3D interactive graphics puzzle (similar to a Rubik cube)
 Summary(hu.UTF-8):	Pybik egy 3D-s interaktív kirakó (a Rubik-kockához hasonló)
+Summary(pl.UTF-8):	Trójwymiarowa interaktywna gra logiczna (podobna do kostki Rubkia)
 Name:		pybik
 Version:	0.1
 Release:	0.1
@@ -16,6 +17,7 @@ BuildRequires:	sed >= 4.0
 Requires:	python-PyOpenGL
 Requires:	python-Pyrex
 Requires:	python-modules
+Requires:	python-pygtkglext
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -23,6 +25,10 @@ Pybik is a 3D interactive graphics puzzle (similar to a Rubik cube).
 
 %description -l hu.UTF-8
 Pybik egy 3D-s interaktív kirakó (a Rubik-kockához hasonló).
+
+%description -l pl.UTF-8
+Pybik to trójwymiarowa interaktywna gra logiczna (podobna do kostki
+Rubika).
 
 %prep
 %setup -q -n Pybik-%{version}
@@ -38,12 +44,13 @@ rm -rf $RPM_BUILD_ROOT
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
-%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
-%py_comp $RPM_BUILD_ROOT%{py_sitedir}
-%py_postclean
 %{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
 # req /usr/share/locale/no/LC_MESSAGES not found !!!
 %{__rm} -rf $RPM_BUILD_ROOT%{_datadir}/locale/no
+
+%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
+%py_comp $RPM_BUILD_ROOT%{py_sitedir}
+%py_postclean
 
 %find_lang %{name}
 
@@ -54,7 +61,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog HACKING NEWS PKG-INFO README THANKS
 %attr(755,root,root) %{_bindir}/pybik
-%{py_sitedir}/pybiklib
+%{py_sitedir}/pybiklib/*.py[co]
+%{py_sitedir}/pybiklib/drwBlock_c.so
 %if "%{py_ver}" > "2.4"
 %{py_sitedir}/Pybik-0.1-py2.6.egg-info
 %endif
