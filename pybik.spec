@@ -1,4 +1,3 @@
-# TODO: doesn't run: ImportError: No module named OpenGL
 Summary:	Pybik is a 3D interactive graphics puzzle (similar to a Rubik cube)
 Summary(hu.UTF-8):	Pybik egy 3D-s interaktív kirakó (a Rubik-kockához hasonló)
 Name:		pybik
@@ -13,6 +12,8 @@ BuildRequires:	python-Pyrex
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	sed >= 4.0
+Requires:	python-PyOpenGL
 Requires:	python-Pyrex
 Requires:	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -25,6 +26,7 @@ Pybik egy 3D-s interaktív kirakó (a Rubik-kockához hasonló).
 
 %prep
 %setup -q -n Pybik-%{version}
+%{__sed} -i "s@%{_prefix}/local/@%{_prefix}/@g" pybiklib/pybik{,.py}
 
 %build
 export CFLAGS="%{rpmcflags}"
