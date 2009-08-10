@@ -1,5 +1,5 @@
 Summary:	A 3D interactive graphics puzzle (similar to a Rubik cube)
-Summary(hu.UTF-8):	Pybik egy 3D-s interaktív kirakó (a Rubik-kockához hasonló)
+Summary(hu.UTF-8):	Egy 3D-s interaktív kirakó (a Rubik-kockához hasonló)
 Summary(pl.UTF-8):	Trójwymiarowa interaktywna gra logiczna (podobna do kostki Rubkia)
 Name:		pybik
 Version:	0.1
@@ -61,6 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog HACKING NEWS PKG-INFO README THANKS
 %attr(755,root,root) %{_bindir}/pybik
+%dir %{py_sitedir}/pybiklib
 %{py_sitedir}/pybiklib/*.py[co]
 %{py_sitedir}/pybiklib/drwBlock_c.so
 %if "%{py_ver}" > "2.4"
