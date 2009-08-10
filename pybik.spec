@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Egy 3D-s interaktív kirakó (a Rubik-kockához hasonló)
 Summary(pl.UTF-8):	Trójwymiarowa interaktywna gra logiczna (podobna do kostki Rubkia)
 Name:		pybik
 Version:	0.1
-Release:	0.1
+Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://launchpad.net/pybik/trunk/0.1/+download/%{name}-%{version}.tar.gz
