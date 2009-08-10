@@ -1,6 +1,6 @@
 Summary:	A 3D interactive graphics puzzle (similar to a Rubik cube)
 Summary(hu.UTF-8):	Egy 3D-s interaktív kirakó (a Rubik-kockához hasonló)
-Summary(pl.UTF-8):	Trójwymiarowa interaktywna gra logiczna (podobna do kostki Rubkia)
+Summary(pl.UTF-8):	Trójwymiarowa interaktywna gra logiczna (podobna do kostki Rubika)
 Name:		pybik
 Version:	0.1
 Release:	1
