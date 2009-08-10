@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Trójwymiarowa interaktywna gra logiczna (podobna do kostki R
 Name:		pybik
 Version:	0.1
 Release:	0.1
-License:	GPL v3
+License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://launchpad.net/pybik/trunk/0.1/+download/%{name}-%{version}.tar.gz
 # Source0-md5:	f1c76611fcd393778649d4adacd26217
@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog HACKING NEWS PKG-INFO README THANKS
+%doc AUTHORS ChangeLog HACKING NEWS PKG-INFO README
 %attr(755,root,root) %{_bindir}/pybik
 %dir %{py_sitedir}/pybiklib
 %{py_sitedir}/pybiklib/*.py[co]
