@@ -17,6 +17,7 @@ BuildRequires:	sed >= 4.0
 Requires:	python-PyOpenGL
 Requires:	python-Pyrex
 Requires:	python-modules
+Requires:	python-numpy
 Requires:	python-pygtkglext
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
