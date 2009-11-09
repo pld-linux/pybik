@@ -2,12 +2,12 @@ Summary:	A 3D interactive graphics puzzle (similar to a Rubik cube)
 Summary(hu.UTF-8):	Egy 3D-s interaktív kirakó (a Rubik-kockához hasonló)
 Summary(pl.UTF-8):	Trójwymiarowa interaktywna gra logiczna (podobna do kostki Rubika)
 Name:		pybik
-Version:	0.2
+Version:	0.2.2
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://launchpad.net/pybik/trunk/%{version}/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	e648d641161a0f774e3b967c6000405f
+# Source0-md5:	72d77ffed83c609f16d1c2f652bbab6c
 URL:		https://launchpad.net/pybik
 BuildRequires:	python-Pyrex
 BuildRequires:	python-devel
@@ -32,7 +32,7 @@ Rubika).
 
 %prep
 %setup -q
-%{__sed} -i "s@%{_prefix}/local/@%{_prefix}/@g" pybiklib/pybik{,.py}
+%{__sed} -i "s@GNOME;GTK;Game;@Game;LogicGame;@" data/pybik.desktop.in
 
 %build
 export CFLAGS="%{rpmcflags}"
