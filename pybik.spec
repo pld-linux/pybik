@@ -9,6 +9,9 @@ Group:		X11/Applications/Games
 Source0:	http://launchpad.net/pybik/trunk/%{version}/+download/%{name}-%{version}.tar.gz
 # Source0-md5:	72d77ffed83c609f16d1c2f652bbab6c
 URL:		https://launchpad.net/pybik
+BuildRequires:	OpenGL-devel
+BuildRequires:	gettext-devel
+BuildRequires:	intltool
 BuildRequires:	python-Pyrex
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
