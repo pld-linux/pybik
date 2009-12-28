@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Pybik
+Comment=The magic cube
+Comment[pl]=Magiczna kostka
+Icon=pybik
+Exec=pybik
+Terminal=false
+Type=Application
+Categories=Game;LogicGame;
+# vi: encoding=utf-8
