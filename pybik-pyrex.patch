@@ -1,0 +1,11 @@
+--- pybik-0.3/setup.py~	2009-11-26 20:45:24.000000000 +0100
++++ pybik-0.3/setup.py	2009-12-28 15:13:56.943896217 +0100
+@@ -256,7 +256,7 @@
+             if in_file.endswith('.pyx'):
+                 out_file = in_file[:-4]+'.c'
+                 self.make_file(pyx_files+pyx_files_dep, out_file,
+-                                cython if self.cython else pyrex, (in_file, out_file))
++                                pyrex, (in_file, out_file))
+                 out_files.append(out_file)
+             else:
+                 out_files.append(in_file)
