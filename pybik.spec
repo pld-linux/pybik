@@ -2,12 +2,15 @@ Summary:	A 3D interactive graphics puzzle (similar to a Rubik cube)
 Summary(hu.UTF-8):	Egy 3D-s interaktív kirakó (a Rubik-kockához hasonló)
 Summary(pl.UTF-8):	Trójwymiarowa interaktywna gra logiczna (podobna do kostki Rubika)
 Name:		pybik
-Version:	0.2.2
-Release:	1
+Version:	0.3
+Release:	0.1
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://launchpad.net/pybik/trunk/%{version}/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	72d77ffed83c609f16d1c2f652bbab6c
+# Source0-md5:	72c2cc828d3d5e21f4bc6d0f5588da41
+Source1:	%{name}.desktop
+Patch0:		%{name}-pyrex.patch
+Patch1:		%{name}-desktop.patch
 URL:		https://launchpad.net/pybik
 BuildRequires:	OpenGL-devel
 BuildRequires:	gettext-devel
@@ -16,7 +19,6 @@ BuildRequires:	python-Pyrex
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
-BuildRequires:	sed >= 4.0
 Requires:	python-PyOpenGL
 Requires:	python-Pyrex
 Requires:	python-modules
@@ -36,7 +38,8 @@ Rubika).
 
 %prep
 %setup -q
-%{__sed} -i "s@GNOME;GTK;Game;@Game;LogicGame;@" data/pybik.desktop.in
+%patch0 -p1
+%patch1 -p1
 
 %build
 export CFLAGS="%{rpmcflags}"
@@ -44,11 +47,13 @@ export CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/pybik
+install -d $RPM_BUILD_ROOT{%{_datadir}/pybik,%{_desktopdir}}
 
 %{__python} setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 # req %{_datadir}/locale/no/LC_MESSAGES not found !!!
 %{__rm} -rf $RPM_BUILD_ROOT%{_datadir}/locale/no
