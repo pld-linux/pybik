@@ -13,7 +13,7 @@ Patch0:		%{name}-pyrex.patch
 Patch1:		%{name}-desktop.patch
 URL:		https://launchpad.net/pybik
 BuildRequires:	OpenGL-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	intltool
 BuildRequires:	python-Pyrex
 BuildRequires:	python-devel
